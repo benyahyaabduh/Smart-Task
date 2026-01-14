@@ -1,8 +1,7 @@
 package com.cwa.crudApp.repository;
 
-import com.cwa.crudApp.dtos.ProduitDto;
-import com.cwa.crudApp.entity.Produit;
+import com.cwa.crudApp.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProduitRepository extends JpaRepository<Produit,Long> {
+public interface ProductRepository extends JpaRepository<Product,Long> {
 }

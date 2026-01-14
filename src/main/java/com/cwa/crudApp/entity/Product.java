@@ -1,36 +1,37 @@
 package com.cwa.crudApp.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 @Table(name = "PRODUIT")
 
-public class Produit {
-
-    int result = Test.add(5, 7);
+public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(length = 50)
+    @NotBlank(message = "Le nom est obligatoire")
     private String nom;
 
     @Column(length = 150)
     private String description;
+
+    @Positive(message = "Le prix doit être positif")
+    @Column(length = 100)
+
     private double prix ;
 
-    public Produit(Long id, String nom, String description, double prix) {
+    public Product(Long id, String nom, String description, double prix) {
         this.id = id;
         this.nom = nom;
         this.description = description;
         this.prix = prix;
     }
-    public Produit() {
+    public Product() {
 
     }
 

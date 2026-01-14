@@ -1,22 +1,20 @@
 package com.cwa.crudApp.dtos;
 
-import jakarta.persistence.Column;
 
-
-public class ProduitDto {
+public class ProductDto {
 
 
     private String nom;
     private String description;
     private double prix ;
 
-    public ProduitDto(String nom, String description, double prix) {
+    public ProductDto(String nom, String description, double prix) {
         this.nom = nom;
         this.description = description;
         this.prix = prix;
 }
 
-    public ProduitDto() {
+    public ProductDto() {
     }
 
     public String getNom() {

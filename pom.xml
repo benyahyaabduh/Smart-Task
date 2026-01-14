@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cwa</groupId>
-	<artifactId>crud-springboot</artifactId>
+	<artifactId>GED-APP</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>crud-springboot</name>
 	<description>simple crud</description>

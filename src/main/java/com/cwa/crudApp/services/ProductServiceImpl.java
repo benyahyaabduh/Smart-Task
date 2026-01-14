@@ -1,9 +1,9 @@
 package com.cwa.crudApp.services;
 
-import com.cwa.crudApp.dtos.ProduitDto;
-import com.cwa.crudApp.entity.Produit;
-import com.cwa.crudApp.mapper.ProduitMapper;
-import com.cwa.crudApp.repository.ProduitRepository;
+import com.cwa.crudApp.dtos.ProductDto;
+import com.cwa.crudApp.entity.Product;
+import com.cwa.crudApp.mapper.ProductMapper;
+import com.cwa.crudApp.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,50 +12,50 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class ProduitServiceImpl implements ProduitService{
+public class ProductServiceImpl implements ProductService {
 
-    private final ProduitRepository produitRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
-    private ProduitMapper produitMapper;
+    private ProductMapper productMapper;
 
-    public ProduitServiceImpl(ProduitRepository produitRepository) {
-        this.produitRepository = produitRepository;
+    public ProductServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
 
     @Override
-    public ProduitDto add(ProduitDto produitDto) {
-        Produit produit = produitMapper.toEntity(produitDto);
-        Produit savedProduit = produitRepository.save(produit);
-        return produitMapper.toDTO(savedProduit) ;
+    public ProductDto add(ProductDto productDto) {
+        Product product = productMapper.toEntity(productDto);
+        Product savedProduct = productRepository.save(product);
+        return productMapper.toDTO(savedProduct) ;
     }
 
 
     @Override
-    public ProduitDto update(Long id, ProduitDto produitDto) {
+    public ProductDto update(Long id, ProductDto productDto) {
 
-        Produit produit = produitRepository.findById(id)
+        Product product = productRepository.findById(id)
                 .orElseThrow(()->new RuntimeException("Produit non trouvee"));
-        produitMapper.updateProduitFromDto(produitDto, produit);
-        Produit updated = produitRepository.save(produit);
-        return produitMapper.toDTO(updated);
+        productMapper.updateProductFromDto(productDto, product);
+        Product updated = productRepository.save(product);
+        return productMapper.toDTO(updated);
     }
 
 
 
 
     @Override
-    public List<Produit> find() {
-        return produitRepository.findAll();
+    public List<Product> findAll() {
+        return productRepository.findAll();
     }
 
 
-     public ProduitDto findById(Long id) {
-         Produit produit = produitRepository.findById(id)
+     public ProductDto findById(Long id) {
+         Product product = productRepository.findById(id)
                  .orElseThrow(()->new RuntimeException("Produit Non Trouvee"));
 
-        return produitMapper.toDTO(produit);
+        return productMapper.toDTO(product);
 
      }
 
@@ -74,7 +74,7 @@ public class ProduitServiceImpl implements ProduitService{
 
     @Override
     public String delete(Long id) {
-        produitRepository.deleteById(id);
+        productRepository.deleteById(id);
         return "Produit supprimer avec succes";
     }
 }

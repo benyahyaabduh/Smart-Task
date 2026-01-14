@@ -1,47 +1,47 @@
 package com.cwa.crudApp.controller;
 
-import com.cwa.crudApp.dtos.ProduitDto;
-import com.cwa.crudApp.entity.Produit;
-import com.cwa.crudApp.services.ProduitService;
-import org.springframework.stereotype.Controller;
+import com.cwa.crudApp.dtos.ProductDto;
+import com.cwa.crudApp.entity.Product;
+import com.cwa.crudApp.services.ProductService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/Produit")
-public class ProduitController {
+@RequestMapping("/Product")
+public class ProductController {
 
-    private final ProduitService produitService;
+    private final ProductService productService;
 
-    public ProduitController(ProduitService produitService) {
-        this.produitService = produitService;
+    public ProductController(ProductService productService) {
+        this.productService = productService;
     }
 
 
     @PostMapping("/AddProduct")
-    public ProduitDto create (@RequestBody ProduitDto p){
-        return produitService.add(p);
+    public ProductDto create (@Valid @RequestBody ProductDto p){
+        return productService.add(p);
     }
 
     @GetMapping("/GetAll")
-    public List<Produit> getAll (){
-        return produitService.find();
+    public List<Product> getAll (){
+        return productService.findAll();
  }
 
     @GetMapping("/FindBydId/{id}")
-    public ProduitDto findById(@PathVariable Long id){
-        return produitService.findById(id);
+    public ProductDto findById(@PathVariable Long id){
+        return productService.findById(id);
  }
 
-    @PutMapping("/update/{id}")
-    public ProduitDto updateProduit (@PathVariable long id,@RequestBody ProduitDto produitDto){
-        return produitService.update(id,produitDto);
+    @PutMapping("/Update/{id}")
+    public ProductDto updateProduit (@PathVariable long id, @RequestBody ProductDto productDto){
+        return productService.update(id, productDto);
  }
 
     @PutMapping("/delete{id}")
     public void deleteProduct (@PathVariable long id){
-        produitService.delete(id);
+        productService.delete(id);
  }
 
 

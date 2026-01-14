@@ -1,7 +1,7 @@
-package com.cwa.crudApp.mapper;
+package com.cwa.gedApp.mapper;
 
-import com.cwa.crudApp.dtos.ProductDto;
-import com.cwa.crudApp.entity.Product;
+import com.cwa.gedApp.dtos.ProductDto;
+import com.cwa.gedApp.entity.Product;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.mapstruct.MappingTarget;

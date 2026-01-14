@@ -1,10 +1,9 @@
-package com.cwa.crudApp.entity;
+package com.cwa.gedApp.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 @Entity
 @Table(name = "USER")

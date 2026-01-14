@@ -1,4 +1,4 @@
-package com.cwa.crudApp.swagger;
+package com.cwa.gedApp.swagger;
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import org.springframework.context.annotation.Bean;

@@ -1,9 +1,9 @@
-package com.cwa.crudApp.services;
+package com.cwa.gedApp.services;
 
-import com.cwa.crudApp.dtos.ProductDto;
-import com.cwa.crudApp.entity.Product;
-import com.cwa.crudApp.mapper.ProductMapper;
-import com.cwa.crudApp.repository.ProductRepository;
+import com.cwa.gedApp.dtos.ProductDto;
+import com.cwa.gedApp.entity.Product;
+import com.cwa.gedApp.mapper.ProductMapper;
+import com.cwa.gedApp.repository.ProductRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.cwa.crudApp.dtos;
+package com.cwa.gedApp.dtos;
 
 
 public class ProductDto {

@@ -1,8 +1,8 @@
-package com.cwa.crudApp.controller;
+package com.cwa.gedApp.controller;
 
-import com.cwa.crudApp.dtos.ProductDto;
-import com.cwa.crudApp.entity.Product;
-import com.cwa.crudApp.services.ProductService;
+import com.cwa.gedApp.dtos.ProductDto;
+import com.cwa.gedApp.entity.Product;
+import com.cwa.gedApp.services.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 

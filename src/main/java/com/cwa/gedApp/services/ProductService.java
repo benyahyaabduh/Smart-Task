@@ -1,7 +1,7 @@
-package com.cwa.crudApp.services;
+package com.cwa.gedApp.services;
 
-import com.cwa.crudApp.dtos.ProductDto;
-import com.cwa.crudApp.entity.Product;
+import com.cwa.gedApp.dtos.ProductDto;
+import com.cwa.gedApp.entity.Product;
 
 import java.util.List;
 

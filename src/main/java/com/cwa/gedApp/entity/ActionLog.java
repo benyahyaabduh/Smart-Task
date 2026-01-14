@@ -1,4 +1,4 @@
-package com.cwa.crudApp.entity;
+package com.cwa.gedApp.entity;
 
 import jakarta.persistence.*;
 

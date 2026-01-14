@@ -1,6 +1,6 @@
-package com.cwa.crudApp.repository;
+package com.cwa.gedApp.repository;
 
-import com.cwa.crudApp.entity.Product;
+import com.cwa.gedApp.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends JpaRepository<Product,Long> {

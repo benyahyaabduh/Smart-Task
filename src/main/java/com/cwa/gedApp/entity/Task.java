@@ -41,4 +41,7 @@ public class Task {
     private LocalDate deadline ;
     private LocalDateTime createdAt;
 
+    @ManyToOne
+    private User user;
+
 }

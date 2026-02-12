@@ -1,7 +1,7 @@
 package com.cwa.gedApp.controller;
 
 import com.cwa.gedApp.dtos.ProductDto;
-import com.cwa.gedApp.entity.Product;
+import com.cwa.gedApp.entity.Task;
 import com.cwa.gedApp.services.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +25,7 @@ public class ProductController {
     }
 
     @GetMapping("/GetAll")
-    public List<Product> getAll (){
+    public List<Task> getAll (){
         return productService.findAll();
  }
 

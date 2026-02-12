@@ -1,12 +1,19 @@
 package com.cwa.gedApp.entity;
 
+import com.cwa.gedApp.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "USER")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class User {
 
     @Id
@@ -19,7 +26,7 @@ public class User {
 
     @Column(length = 50)
     @NotBlank(message = "Le prénom est obligatoire")
-    private String lastName;
+    private String userName;
 
     @Column(length = 50)
     private String email;
@@ -28,7 +35,8 @@ public class User {
     @Column
     private LocalDateTime createdDate;
 
-    private String role; //AdminOuUser
-
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
 
 }

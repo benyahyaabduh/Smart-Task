@@ -1,7 +1,7 @@
 package com.cwa.gedApp.mapper;
 
 import com.cwa.gedApp.dtos.ProductDto;
-import com.cwa.gedApp.entity.Product;
+import com.cwa.gedApp.entity.Task;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.mapstruct.MappingTarget;
@@ -11,10 +11,10 @@ import org.mapstruct.MappingTarget;
 public interface ProductMapper {
     ProductMapper INSTANCE = Mappers.getMapper(ProductMapper.class);
 
-    ProductDto toDTO(Product product);
+    ProductDto toDTO(Task task);
 
-    Product toEntity(ProductDto productDTO);
+    Task toEntity(ProductDto productDTO);
 
-    void updateProductFromDto(ProductDto dto, @MappingTarget Product entity);
+    void updateProductFromDto(ProductDto dto, @MappingTarget Task entity);
 
 }

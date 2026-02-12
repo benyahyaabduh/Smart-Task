@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cwa</groupId>
-	<artifactId>GED-APP</artifactId>
+	<artifactId>Smart-Task</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>crud-springboot</name>
 	<description>simple crud</description>
@@ -36,6 +36,11 @@
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
 			<version>1.5.5.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>

@@ -1,7 +1,7 @@
 package com.cwa.gedApp.services;
 
 import com.cwa.gedApp.dtos.ProductDto;
-import com.cwa.gedApp.entity.Product;
+import com.cwa.gedApp.entity.Task;
 import com.cwa.gedApp.mapper.ProductMapper;
 import com.cwa.gedApp.repository.ProductRepository;
 import lombok.AllArgsConstructor;
@@ -26,19 +26,19 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDto add(ProductDto productDto) {
-        Product product = productMapper.toEntity(productDto);
-        Product savedProduct = productRepository.save(product);
-        return productMapper.toDTO(savedProduct) ;
+        Task task = productMapper.toEntity(productDto);
+        Task savedTask = productRepository.save(task);
+        return productMapper.toDTO(savedTask) ;
     }
 
 
     @Override
     public ProductDto update(Long id, ProductDto productDto) {
 
-        Product product = productRepository.findById(id)
+        Task task = productRepository.findById(id)
                 .orElseThrow(()->new RuntimeException("Produit non trouvee"));
-        productMapper.updateProductFromDto(productDto, product);
-        Product updated = productRepository.save(product);
+        productMapper.updateProductFromDto(productDto, task);
+        Task updated = productRepository.save(task);
         return productMapper.toDTO(updated);
     }
 
@@ -46,16 +46,16 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public List<Product> findAll() {
+    public List<Task> findAll() {
         return productRepository.findAll();
     }
 
 
      public ProductDto findById(Long id) {
-         Product product = productRepository.findById(id)
+         Task task = productRepository.findById(id)
                  .orElseThrow(()->new RuntimeException("Produit Non Trouvee"));
 
-        return productMapper.toDTO(product);
+        return productMapper.toDTO(task);
 
      }
 

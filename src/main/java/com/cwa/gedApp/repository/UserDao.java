@@ -9,11 +9,13 @@ import java.util.List;
 
 public interface UserDao extends JpaRepository<User,Long> {
 
-    List<User> findByUserName(String username);
+    List<User> findByLastName(String lastName);
 
-    boolean existsByUserName(String userName);
+    boolean existsByLastName(String lastName);
 
-    boolean existByEmail(String email);
+    boolean existsByEmail(String email);
+    boolean existsById(Long idUser);
+
 
 
 }

@@ -12,8 +12,6 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "TASK")
-@Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -44,4 +42,67 @@ public class Task {
     @ManyToOne
     private User user;
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public Priority getPriority() {
+        return priority;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public LocalDate getDeadline() {
+        return deadline;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPriority(Priority priority) {
+        this.priority = priority;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
+    public void setDeadline(LocalDate deadline) {
+        this.deadline = deadline;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

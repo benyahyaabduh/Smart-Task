@@ -32,15 +32,22 @@ public class UserController {
         return userService.createUser(user);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/FindUser/{id}")
     User getUserById (@PathVariable Long id){
         return userService.getUserById(id);
     }
 
-    @DeleteMapping("/{id}/DeleteUser")
+    @DeleteMapping("/DeleteUser/{id}")
     void deleteUserById (@PathVariable Long id){
-        userDao.deleteById(id);
+        userService.deleteUserbyId(id);
 
     }
+
+
+    @PutMapping("/UpdateUser/{id}")
+    User updateUser (@PathVariable Long id,@RequestBody UserDto userDto){
+        return userService.updateUser( id,userDto);
+    }
+
 
 }

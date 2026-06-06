@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GedAppSpringbootApplication {
+	public class TaskManagerAppSpringbootApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GedAppSpringbootApplication.class, args);
+		SpringApplication.run(TaskManagerAppSpringbootApplication.class, args);
 
 
 	}

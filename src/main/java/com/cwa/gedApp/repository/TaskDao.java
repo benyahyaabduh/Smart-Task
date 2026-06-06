@@ -15,6 +15,7 @@ public interface TaskDao extends JpaRepository<Task,Long> {
     List<Task> findByUserAndStatus(User user, Status status);
 
     List<Task> findByUserAndPriority(User user, Priority priority);
+    List<Task> findByUserId (Long userId);
 
 
     Long id(Long id);

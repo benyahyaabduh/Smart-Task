@@ -1,5 +1,7 @@
 package com.cwa.gedApp.controller;
 
+import com.cwa.gedApp.dtos.TaskDto;
+import com.cwa.gedApp.dtos.UserDto;
 import com.cwa.gedApp.entity.Task;
 import com.cwa.gedApp.entity.User;
 import com.cwa.gedApp.repository.UserDao;
@@ -15,28 +17,46 @@ import java.util.List;
 public class TaskController {
 
 
-    private TaskService taskService;
+    private final TaskService taskService;
 
     private final UserDao userDao;
 
-    public TaskController(UserDao userDao) {
+    public TaskController(TaskService taskService, UserDao userDao) {
+        this.taskService = taskService;
         this.userDao = userDao;
     }
 
 
-    @GetMapping("/GetTasks")
-    List<Task> getUserTasks (@RequestBody User user){
+    @GetMapping("/GetTasks/{userId}")
+    List<Task> findByUserId (@PathVariable Long userId){
 
-        return taskService.getUserTasks(user);
+        return taskService.findByUserId(userId);
     }
 
-    @PostMapping("/CreateTask")
-    Task createTask (@RequestBody Task task,@PathVariable Long idUser){
+    @DeleteMapping("/DeleteUser/{id}")
+    void deleteTaskById (@PathVariable Long id,@RequestBody User user){
+        taskService.deleteTask(id , user);
 
-        User user =userDao.findById(idUser)
+    }
+
+    @PostMapping("/CreateTask/{userId}")
+    Task createTask (@RequestBody TaskDto taskDto, @PathVariable Long userId){
+
+        User user =userDao.findById(userId)
                 .orElseThrow(()->new RuntimeException("User not found"));
-        return taskService.createTask(task,user);
+
+        return taskService.createTask(taskDto,userId);
 
     }
+
+    Task updateTask (Long idTask, TaskDto taskDto, Long userId){
+
+        return null;
+    }
+
+
+
+
+
 
 }

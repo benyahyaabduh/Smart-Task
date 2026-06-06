@@ -2,6 +2,7 @@ package com.cwa.gedApp.entity;
 
 import com.cwa.gedApp.enums.Priority;
 import com.cwa.gedApp.enums.Status;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
@@ -21,8 +22,8 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(length = 50)
-    @NotBlank(message = "Le nom est obligatoire")
+    @Column(length = 20)
+    @NotBlank(message = "Le titre est obligatoire")
     private String title;
 
     @Column(length = 150)
@@ -40,7 +41,22 @@ public class Task {
     private LocalDateTime createdAt;
 
     @ManyToOne
+    @JsonIgnoreProperties({"taskList"})
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    @JsonIgnoreProperties({"taskList", "team"}) // Coupe la boucle infinie JSON vers Team
+    private Project project;
+
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
 
     public Long getId() {
         return id;
